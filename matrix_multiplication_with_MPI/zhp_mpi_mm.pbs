@@ -1,0 +1,6 @@
+#PBS -N zhp_mpi_mm
+#PBS -o /home/zhpmatrix/code/c++/mpi/zhp_mpi_mm.out
+#PBS -e /home/zhpmatrix/code/c++/mpi/zhp_mpi_mm.err
+#PBS -l nodes=3:ppn=8
+cd $PBS_O_WORKDIR
+mpirun -np 24 -machinefile $PBS_NODEFILE ./mpi_mm
