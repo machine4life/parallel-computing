@@ -4,10 +4,6 @@
 * \date 2017-03-08
 */
 
-#include "mpi.h"
-#include <omp.h>
-#include <time.h>
-
 #include <fstream>
 #include <sstream>
 #include <iostream>
