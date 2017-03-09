@@ -1,6 +1,6 @@
 /*!
 * \brief parallel logistic regression with mpi to deal with classification
-* \..... using batch gradient descent and only output final weights vector(m* \..... atrix)
+* \..... using batch gradient descent and only output final weights vector(matrix)
 * \author zhpmatrix
 * \date 2017-03-09
 */
