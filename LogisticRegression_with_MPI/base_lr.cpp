@@ -1,5 +1,5 @@
 /*!
-* \brief Parallel Logistic Regression For Classification
+* \brief Logistic Regression For Classification
 * \author zhpmatrix
 * \date 2017-03-08
 */
