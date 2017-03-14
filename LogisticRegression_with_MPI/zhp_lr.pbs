@@ -1,0 +1,6 @@
+#PBS -N zhp_lr
+#PBS -o /home/zhpmatrix/code/c++/mpi/zhp_lr.out
+#PBS -e /home/zhpmatrix/code/c++/mpi/zhp_lr.err
+#PBS -l nodes=2:ppn=2
+cd $PBS_O_WORKDIR
+mpirun -np 4 -machinefile $PBS_NODEFILE ./lr
