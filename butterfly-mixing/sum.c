@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define NUM_THREADS 4
+#define NUM_ITERS 3
 
 int N;
 int *X;
@@ -40,18 +41,20 @@ int main(){
  	int sum=0;
  	pthread_t tHandles[NUM_THREADS];
  	initArr();
- 	for(int i=0;i<NUM_THREADS;i++ ){
-  		int *threadNum =(int* )malloc(4);
-  		*threadNum=i;
-		printf("threadNum is:%d\n",*threadNum);
-  		pthread_create(&tHandles[i],NULL,Summation,
-						(void*)threadNum);
+	for(int iter = 0;iter < NUM_ITERS;iter++){
+		for(int i=0;i<NUM_THREADS;i++ ){
+			int *threadNum =(int* )malloc(4);
+			*threadNum=i;
+			printf("threadNum is:%d\n",*threadNum);
+			pthread_create(&tHandles[i],NULL,Summation,
+							(void*)threadNum);
+		}
+		
+		for(int j=0;j<NUM_THREADS;j++){
+			pthread_join(tHandles[j],NULL);
+			sum+= gSum[j];
+		}
+		printf("the sum of array elements is %d\n",sum);
 	}
- 	
-	for(int j=0;j<NUM_THREADS;j++){
-  		pthread_join(tHandles[j],NULL);
-  		sum+= gSum[j];
- 	}
- 	printf("the sum of array elements is %d\n",sum);
  	return 0;
 }
